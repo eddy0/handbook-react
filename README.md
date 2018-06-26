@@ -6,6 +6,8 @@ all about react conclusion
 #  [react ecosystem](https://github.com/eddy0/handbook-react/blob/master/webpack4.md)
 [link](https://github.com/eddy0/handbook-react/blob/master/ecosystem.md)
 
+---
+
 # [why webpack 4](https://github.com/eddy0/handbook-react/blob/master/webpack4.md)
 [link](https://github.com/eddy0/handbook-react/blob/master/webpack4.md)
 
@@ -24,8 +26,29 @@ output: {
 devServer: {
     historyApiFallback: true,
 },
+```
+
+#### add env
 
 ```
+// on package.json, scripts will be
+// "build": "NODE_ENV='production' webpack -p"
+
+mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
+// or even more  fancy
+//  "build": webpack --mode production"
+```
+
+---
 
 # [propTypes](https://github.com/eddy0/handbook-react/blob/master/propType.md)
 [link](https://github.com/eddy0/handbook-react/blob/master/propType.md)
+
+---
+
+# [lifecycle](https://github.com/eddy0/handbook-react/blob/master/lifecycle.md)
+
+#### most important: componentDidMount
+
+[link](https://github.com/eddy0/handbook-react/blob/master/lifecycle.md)
