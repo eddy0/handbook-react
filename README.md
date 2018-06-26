@@ -52,3 +52,10 @@ mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 #### most important: componentDidMount
 
 [link](https://github.com/eddy0/handbook-react/blob/master/lifecycle.md)
+
+
+# [redux](https://github.com/eddy0/handbook-react/blob/master/redux.md)
+
+
+1. basic redux 自定义一个 redux
+[link](https://github.com/eddy0/handbook-react/blob/master/redux.md)
