@@ -4,9 +4,9 @@
 - store 是保存 state 的容器
 - getState 是获取当前所有的 store
 - subscribe 是注册监听函数, 调用这个函数返回取消监听
-- action 是提供 state change 的信息, state 改变的 type 和必要信息
-- reducer 是 state 改变的具体方法 how, 如果 action.type 满足条件,  根据 action 提供的信息和以前的 state 来生成新的 state
-- dispatch 是通过指定参数 即具体的 action, 来执行 reducer 函数, 更新 state, 触发 state 改变的监听
+- action 是提供 state change 的信息, state 改变的 type 和必要信息, `action 就是存在各个组件里面原来更新 state 的行为, 比如点击按钮提交删除等等行为`
+- reducer 是 state 改变的具体方法 (how), 如果 action.type 满足条件, 则根据 action 提供的信息和以前的 state 来生成新的 state
+- dispatch 是通过传入参数 即具体的 action, 来执行 reducer 函数, 更新 state, 触发 state 改变的监听
 
 ## redux goal and philosophy
 - make the state more predictable `增加程序的可预测性`
@@ -25,6 +25,8 @@ in react, there are tons of state throughout the app, to make the state more pre
     - sever side rending `因为在一起, 服务器请求发送也方便`
 
 ## how state tree works? ---- Store `store 需要做的事情`
+state 放在一起了, 然后呢?? 也就是 store 的功能是什么?
+
 1. place to store all the state  `本身能装所有 state 的容器`
 2. get data, build state tree `首先最基本的是要获取 state tree, 也就是所有的 state, 即 data`
 3. listen  `监听 state tree 里面的变化`
