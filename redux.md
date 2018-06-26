@@ -136,14 +136,11 @@ updateState is excuted based on current state and the action passed in
 
 // reducer update the state based on the action
 //  reduer
-const updateState = (state={}, action) => {
+const updateState = (state=[], action) => {
     if (action.type === 'ADD_TODO') {
-        return {
-            ...state,
-            action.todo
-        }
+        return state.concat([action.todo])
     } else if (action.type === 'DELETE_TODO')) {
-        return state.filter((s) => s !== action.id)
+        return state.filter((todo) => todo.id !== action.id)
     }
 }
 

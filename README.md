@@ -58,4 +58,9 @@ mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
 
 1. basic redux 自定义一个 redux
+
 [link](https://github.com/eddy0/handbook-react/blob/master/redux.md)
+
+2. more advance on customize redux
+
+[link](https://github.com/eddy0/handbook-react/blob/master/redux2.md)
