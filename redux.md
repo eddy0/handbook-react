@@ -1,12 +1,12 @@
 # redux  
 
 ## conclusion
-store 是保存 state 的容器
-getState 是获取当前所有的 store
-subscribe 是注册监听函数, 调用这个函数返回取消监听
-action 是提供 state change 的信息, state 改变的 type 和必要信息
-reducer 是 state 改变的具体方法 how, 如果 action.type 满足条件,  根据 action 提供的信息和以前的 state 来生成新的 state
-dispatch 是通过指定参数 即具体的 action, 来执行 reducer 函数, 更新 state, 触发 state 改变的监听
+- store 是保存 state 的容器
+- getState 是获取当前所有的 store
+- subscribe 是注册监听函数, 调用这个函数返回取消监听
+- action 是提供 state change 的信息, state 改变的 type 和必要信息
+- reducer 是 state 改变的具体方法 how, 如果 action.type 满足条件,  根据 action 提供的信息和以前的 state 来生成新的 state
+- dispatch 是通过指定参数 即具体的 action, 来执行 reducer 函数, 更新 state, 触发 state 改变的监听
 
 ## redux goal and philosophy
 - make the state more predictable `增加程序的可预测性`
