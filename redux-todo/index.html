@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js'></script>
+    <script src='https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js'></script>
+    <script src='https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js'></script>
+    <script src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js'></script>
+    <script src='https://tylermcginnis.com/goals-todos-api/index.js'></script>
+
+    <title>tdoo</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="./action.js"></script>
+    <script src="./reducer.js"></script>
+    <script type="text/javascript">
+
+    const mapper = (schema) => {
+        let f = (state=[], action) => {
+            let map = schema()
+            let key = map[action.type]
+            if (key !== undefined) {
+                state = key(state, action)
+            }
+            return state
+        }
+        return f
+    }
+
+    const store = Redux.createStore(Redux.combineReducers({
+        todos: mapper(todoMap)
+    })  )
+
+    </script>
+    <script>
+        const generateId = () => {
+            return Math.random().toString(32).substring(2) + Date.now().toString(32)
+        }
+    </script>
+
+    <script type="text/babel">
+        class Todo extends React.Component {
+
+            handleAddTodo = (e) => {
+                console.log(this.input)
+                this.props.store.dispatch(actionAddTodo({
+                    id: generateId(),
+                    name: this.input.value,
+                }))
+
+                this.input.value = ''
+            }
+
+            handleDeleteTodo = (todo) => {
+                console.log(todo)
+                this.props.store.dispatch(actionDeleteTodo(todo.id))
+            }
+
+            handleUpdate = (e) => {
+                let value = e.target.innerText
+                console.log('value', value)
+            }
+
+            render(){
+                return (
+                    <div>
+                        <h3>todo List</h3>
+                        <input type="text"
+                                ref={(input) => this.input = input }
+                         />
+                         <button onClick={this.handleAddTodo}>add todo</button>
+                        <ul>
+                            {
+                                this.props.todos.map((todo) => (
+                                    <li key={todo.id}>
+                                        <span
+                                        contentEditable={true}
+                                        onInput={(e) =>this.handleUpdate(e)}
+                                        >{todo.name}</span>
+                                        <button onClick={() => this.handleDeleteTodo(todo)}>delete</button>
+
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+
+        class App extends React.Component {
+            componentDidMount() {
+                let {dispatch, subscribe} = this.props.store
+                API.fetchTodos()
+                .then((todos) => {
+                    dispatch(actionFetchData(todos))
+                })
+
+                subscribe(() => this.forceUpdate())
+
+            }
+
+            render() {
+                const {todos} = this.props.store.getState()
+                return (
+                    <div>
+                        <Todo todos={todos} store={this.props.store} />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App store={store} />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>
