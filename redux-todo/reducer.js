@@ -17,7 +17,6 @@ const updateTodo = (state, action) => {
     })
 }
 
-
 const todoMap = () => {
     let map = {
         [ADD_TODO]: addTodo,

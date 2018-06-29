@@ -64,3 +64,7 @@ mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
 2. more advance on customize redux
 
 [link](https://github.com/eddy0/handbook-react/blob/master/redux2.md)
+
+3. redux middleware, context  historyApiFallback
+
+[link](https://github.com/eddy0/handbook-react/blob/master/reduxMiddleware.md)
