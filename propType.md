@@ -39,4 +39,25 @@ Greeting.propTypes = {
 
 ```
 
+
+#### put the prop types inside the component by using static method
+```
+class ShowTheLocation extends React.Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+
+  render() {
+    const { match, location, history } = this.props
+
+    return (
+      <div>You are now at {location.pathname}</div>
+    )
+  }
+}
+
+```
+
 ### (offical link to check)[https://reactjs.org/docs/typechecking-with-proptypes.html]
