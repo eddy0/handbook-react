@@ -21,3 +21,7 @@ three main things webpack want's to know :
 3. webpack needs to know to which location it should save the new transformed code. `output`
 
 webpack 需要知道三件事, 从哪里来, 怎么转, 到哪里去, webpack 4 需要知道是什么用于什么环境 mode: development / build
+
+
+
+#### treat each file as IIFE, 这样可以出现同样的变量
