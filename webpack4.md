@@ -25,3 +25,35 @@ webpack 需要知道三件事, 从哪里来, 怎么转, 到哪里去, webpack 4 
 
 
 #### treat each file as IIFE, 这样可以出现同样的变量
+
+#### loader and rule
+
+- test: regex
+- use: array, string, function
+- include: regexp [],
+- exclude: regexp [],
+- issuer: regexp | string
+- enforce: 'pre' | 'post'
+
+```js
+module: {
+    rules: [
+        {test: /\.js$/, use:'babel-loader'},
+        {test: /\.css$/, use:'css-loader'},
+    ]
+}
+```
+
+#### plugins
+
+a plugin is object which implement an apply function
+complier use it to emit events
+
+- require() plugin from node_modules into config
+- add new instance of plugin to plugin s key in config object
+- provide addtional infomation for arguments
+
+multipage-webpack-plugin
+webpack.ProgressPlugin()
+webpack-merge
+min-css-extract-plugin --- change style loader to this plugin
