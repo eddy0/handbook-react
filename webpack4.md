@@ -57,3 +57,76 @@ multipage-webpack-plugin
 webpack.ProgressPlugin()
 webpack-merge
 min-css-extract-plugin --- change style loader to this plugin
+
+#### top 3 web page load time causes:
+- amount of *js* for initial download
+- amount of *css* for initial download
+- amount of *network request* for initial download
+
+ chrome devtools coverage to check code coverage
+
+#### code splitting
+
+work at build time (in the code)
+
+1. 2 types: static, 'dynamic' (nothing is really dynamic)
+
+2. when to use
+    - 'heavy' js
+    - anything temporal
+    - routes
+
+```js
+import getModel = () => import('./src/model.js')
+listener.on('doSomething', () => {
+    getModel().then((module) => {
+        module.default()
+    })
+})
+
+```    
+
+3. react code splitting library
+- react-loadable
+
+4. goal
+    - uncompressed initial js <= 200kb
+    - uncompressed initial css <=100kb
+    - http: 6 initial network calls
+    - http/2 20 initial network calls
+    - 90% code coverage
+
+
+5. dynamic load
+```js
+const getThmeme = (name) => import(`./src/theme/${name}`)
+
+if (window.theme) {
+    getTheme('style1').then((module) => {
+        module.default()
+    })
+} else {
+    getTheme('style2').then((module) => {
+        module.default()
+    })
+}
+```
+
+6. webpackChunkName
+magic comments show name on output [name]
+
+```js
+const getFoot = () => import(/* webpackChunkName: footer */ './footer.js')
+```
+
+7. lazy once
+
+8. prefetch & preload
+
+```html
+<link rel="preload" href="">
+```
+
+```js
+/*webpackPrefetch: true*/
+```
