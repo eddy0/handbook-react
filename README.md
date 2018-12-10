@@ -3,6 +3,11 @@ all about react conclusion
 
 ----
 
+
+# react-ts 的坑
+[link](https://github.com/eddy0/handbook-react/blob/master/react-ts.md)
+
+
 #  [react ecosystem](https://github.com/eddy0/handbook-react/blob/master/webpack4.md)
 [link](https://github.com/eddy0/handbook-react/blob/master/ecosystem.md)
 
