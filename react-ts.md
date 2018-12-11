@@ -61,3 +61,17 @@ const TextInput= (props: IFormProps) => {
 
 
 ```
+
+3. styled-component with material ui / antd
+  1. 用 as 来表示这是一个 compoennt, 传入库的 props
+
+```js
+
+const StyledCard = styled(Card)`
+  && {
+    width: 100%
+  }
+` as React.SFC<CardProps>
+
+
+```
