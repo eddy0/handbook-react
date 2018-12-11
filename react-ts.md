@@ -64,7 +64,8 @@ const TextInput= (props: IFormProps) => {
 
 3. styled-component with material ui / antd
   1. 用 as 来表示这是一个 compoennt, 传入库的 props
-
+  2. 直接 styledCard:xx 来定义会报错
+  
 ```js
 
 const StyledCard = styled(Card)`
